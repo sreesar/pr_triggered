@@ -1,11 +1,9 @@
-Name: Starter Workflow first
-
+name: Starter Workflow first
 on:
   push:
     branches: main
   pull_request:
     branches: main
-
 jobs:
   build:
     runs-on: ubuntu-latest
