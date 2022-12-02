@@ -1,14 +1,25 @@
-name: Starter Workflow first
+name: 080-resusable-workflow-caller
+
 on:
   push:
-    branches: main
+    branches: none # [ main ]
   pull_request:
-    branches: main
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+    branches: none # [ main ]
 
-      - name: demo workflow job
-        run: echo This is a demo start workflow
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  call-workflow-A:
+    uses: HoussemDellai/github-actions-course/.github/workflows/080-reusable-workflow-called.yml@main
+    with:
+      username: sree
+    secrets:
+      token: ${{ secrets.TOKEN }}
+
+  call-workflow-B:
+    uses: HoussemDellai/github-actions-course/.github/workflows/080-reusable-workflow-called.yml@main
+    with:
+      username: nina
+    secrets:
+      token: ${{ secrets.TOKEN }}
