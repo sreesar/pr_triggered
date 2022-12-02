@@ -7,19 +7,18 @@ on:
     branches: none # [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
+  workflow_dispatch:  { }
 jobs:
   call-workflow-A:
     uses: sreesar/pr_triggered/.github/workflows/use.yml@main
     with:
       username: sree
     secrets:
-      token: ${{ ACTIONS_KEY }}
+      token: ${{ secrets.ACTIONS_KEY }}
 
   call-workflow-B:
     uses: sreesar/pr_triggered/.github/workflows/use.yml@main
     with:
       username: nina
     secrets:
-      token: ${{ ACTIONS_KEY }}
+      token: ${{secrets.ACTIONS_KEY }}
