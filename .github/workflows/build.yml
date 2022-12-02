@@ -18,7 +18,7 @@ jobs:
       token: ${{ ACTIONS_KEY }}
 
   call-workflow-B:
-    uses: sreesar/pr_triggered/.github/workflows/use.yml@main@main
+    uses: sreesar/pr_triggered/.github/workflows/use.yml@main
     with:
       username: nina
     secrets:
